@@ -61,21 +61,21 @@ const Bookshelf = () => {
   });
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto dark:text-white">
       <p className="mb-4">
         This is a list of some of the books I've read or am reading. Books I've
-        particularly enjoyed have a darker border around them. A lot of books
-        have these darker borders, because I generally try to only read acclaimed books. Some
+        particularly enjoyed have a thicker border around them. A lot of books
+        have these thicker borders, because I generally try to only read acclaimed books. Some
         entries have a link to my notes on the book.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {sortedBooks.map((book) => (
           <div
             key={book.id}
-            className={`bg-white shadow-md p-4 ${book.favorite ? "border-2" : ""}`}
+            className={`bg-white shadow-md p-4 dark:bg-gray-800 ${book.favorite ? "border-2" : ""}`}
           >
-            <h2 className="text-lg font-semibold mb-2">{book.title}</h2>
-            <p className="text-sm text-gray-600 mb-2">{book.author}</p>
+            <h2 className="text-lg font-semibold mb-2 dark:text-neutral-300">{book.title}</h2>
+            <p className="text-sm text-gray-600 mb-2 dark:text-neutral-300">{book.author}</p>
             {book.notes && (
               <Link href={`/books/${book.slug}`} className="text-blue-500">
                 Read Notes
@@ -83,7 +83,7 @@ const Bookshelf = () => {
             )}
             {book.date_finished && (
               <p className="text-sm text-gray-600">
-                Date Finished: {book.date_finished}
+                Finished: {book.date_finished}
               </p>
             )}
             {!book.date_finished && (
