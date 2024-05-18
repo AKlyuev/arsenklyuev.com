@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const metadata = {
   title: "About - Arsen Klyuev",
-  description: "Read my blog.",
+  description: "About me.",
 };
 
 export default function Page() {
