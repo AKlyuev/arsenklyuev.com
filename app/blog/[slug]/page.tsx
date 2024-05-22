@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import { CustomMDX } from "app/components/mdx";
-import { formatDate, getBlogPosts } from "app/blog/utils";
+import { getBlogPosts } from "app/blog/utils";
 import { baseUrl } from "app/sitemap";
+import Post from "app/components/post";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -78,24 +78,12 @@ export default function Blog({ params }) {
             author: {
               "@type": "Person",
               name: "Arsen Klyuev",
-              url: "https://www.arsenklyuev.com"
+              url: "https://www.arsenklyuev.com",
             },
           }),
         }}
       />
-      <div className="max-w-2xl">
-        <h1 className="title font-semibold text-2xl tracking-tighter">
-          {post.metadata.title}
-        </h1>
-        <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            {formatDate(post.metadata.publishedAt)}
-          </p>
-        </div>
-        <article className="prose">
-          <CustomMDX source={post.content} />
-        </article>
-      </div>
+      <Post post={post} />
     </section>
   );
 }
