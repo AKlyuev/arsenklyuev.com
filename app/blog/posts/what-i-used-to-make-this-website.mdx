@@ -1,21 +1,23 @@
 ---
-title: "How I Made This Website"
+title: "What I Used To Make This Website"
 publishedAt: "2024-05-18"
 summary: "Explaining what tools I used to make this website."
 ---
 
+import Image from "next/image";
+
 ![Confusion choosing website stack](/website_confusion.png)
 
-Creating a personal website has been a very rewarding experience. It's the first time I can say I coded something for *myself*. 
+Creating a personal website has been a very rewarding experience. Frankly, it's the first time I can say I coded something for *myself*. 
 
-However, choosing how to build this website was a somewhat confusing process. There are tons of ways to make a website, with 
-varying degrees of efficacy, complexity, ease, etc. This post is a summary of my thought process in choosing what to use a make a website, and what I learned in the process. Be aware - it's is not a tutorial on how to make a website. But I hope reading this helps you make sense of the options out there in the world of personal web development!
+However, choosing how to build this website was a somewhat confusing process. There are tons of ways to make a website, each with their own tradeoffs. This post is a summary of my thought process in choosing what to use a make this website, and what I learned in the process. Be aware - it's is not a tutorial on how to make a website. But I hope reading this helps you make sense of the options out there in the world of personal web development!
 
 A quick disclaimer: This post is targeted towards people who are interested in building a website themselves - i.e. with coding. For people not interested in that, I would recommend using a **Content Management System (CMS)** which includes a website-builder such as Squarespace. It'll be easier to build a website with one, at the cost of some money per month/year. Despite being a software engineer, I considered using Squarespace but ultimately chose to make this website from "scratch" because I was interested in learning the technologies involved. 
 
 # Static vs. Dynamic Websites
 
 ![Static vs. Dynamic Websites](/static_vs_dynamic.png)
+
 When looking into how to create a personal website, you'll see a lot of talk about _static_ vs. _dynamic_ websites. Specifically, people will suggest tools for building and deploying static sites, since personal websites are pretty much always static sites. But what exactly do static and dynamic mean in this context?
 
 I don't think there is one "official" definition for what a static website is, but I would say it is a website which overwhelmingly serves *static* content. Static content is content that always stays the same, completely independent of the website user. A traditional blog is a good example: no matter who is reading a blog, the blog posts and their content will be the same. Contrast this to a dynamic website like Facebook, where what you see on the website is tailored to who you are, and the difference becomes more clear. Most websites actually have a combination of static and dynamic content, but they usually lean one way or another.
@@ -28,7 +30,9 @@ Additionally, it's much easier to take advantage of [caches & CDNs](https://deve
 Static websites are generally easier to make than dynamic websites - after all, it's essentially as basic as a website can be! And there are tools for creating static sites that improve the developer experience of making one called **Static Site Generators (SSGs)**.
 
 ## SSGs
+
 ![SSGs on the dev spectrum](/SSG_spectrum.png)
+
 When you look up "How to create a personal website," you'll notice a LOT of people mentioning tools like [Gatsby](https://www.gatsbyjs.com/), [Jekyll](https://jekyllrb.com/), etc. These are SSGs! SSGs are generally focused on a specific language/framework like Go or [React](https://react.dev/). I would recommend figuring out what language or framework you want to use and then using an SSG designed for it. 
 
 In my case, way before I learned about dynamic and static websites and whatnot, I wanted to learn [Next.js](https://nextjs.org/). Next.js is a framework for building websites with React. I had seen Next.js coming up a lot in the things I was reading, and I hadn't used it before. I was happy to find out that Next.js supports static site generation, and that locked in my decision to use it for my website!
@@ -42,6 +46,7 @@ In my case, way before I learned about dynamic and static websites and whatnot, 
 As I always do when I start learning a new technology, I immediately found the main Next.js tutorial on the Next.js website and did most of it. I take notes when I do tutorials, because I've realized I don't retain that much information by just going through tutorials, but I find the notes I take to be helpful reference material afterwards. One of the main things I needed to understand was the various types of rendering Next.js supports.
 
 ## Rendering
+
 ![Rendering](/web_rendering.png)
 
 **Rendering** is the process of converting your code into a UI (i.e. what will be visible on your website). Next.js does what it calls **Static Rendering** by default. Rendering needs to happen at some point in the process of showing a website visitor the website UI, but the website creator can choose whether it happens on the server or the website visitor's browser (the client). Think about it like this: If you want to get a loaf of bread, you can either buy a ready-made loaf from a bakery (this is equivalent to **server-side rendering**) or buy the ingredients and make it yourself (this is equivalent to **client-side rendering**). Static Rendering is a process where rendering happens on the server at **build time**, aka. when you deploy. Or during cache revalidation.  Static Rendering and server-side rendering are not exactly the same thing, but as far as I can tell, Static Rendering is a type of server-side rendering. 
@@ -53,6 +58,7 @@ Essentially, static rendering is the logical way of rendering static content.
 # Content Storage
 
 ![Content Storage](/storage.png)
+
 One of the choices when making a website yourself is to choose *where* your content (e.g. blog posts) will actually live. I initially assumed it was a no-brainer - you put your content in the source code! However, reading this post by a friend of mine made me realize what should be obvious: the content can theoretically live anywhere, as long as there is an API to fetch that content. Thanks to Next.JS' static rendering, when you deploy your website it will fetch the content from the API and then build the static files for your website. 
 
 The main benefit of this approach is that it makes it way easier to produce or modify your content. If I put this blog post in source code, any changes will require me to modify the code, push to github, and redeploy the website. If I put this post in some other location where it is fetched via an API, I could modify it by just changing it wherever it is fetched from. The source code of the website would remain the same - all the website is doing is calling an API endpoint. 
@@ -77,7 +83,9 @@ This was my first time using a website template, and it turned out to be perfect
 I made a Github repo for the website and started building.
 
 # Getting inspiration from other websites
-![Copying other websites](/copying_websites_copy.png)
+
+![Copying other websites](/copying_websites.png)
+
 Around the time I decided I wanted to make a website, I started bookmarking personal website's I liked. I really liked the clean, beautiful aesthetic of [this website](https://www.claybavor.com/). I also really liked the "Bookshelf" and "Thoughts" section on [this website](https://www.austinnick.blog/). While I'd argue completely copying someone else's website makes you lose out on part of the enjoyment of creating your website, I don't think there's anything wrong with looking at other websites for ideas you like!
 
 Looking at other websites, I determined what I wanted to have on my website. Initially, I wanted my website to have 5 sections:
@@ -103,12 +111,15 @@ If there was going to be one section on my website I knew would be easy to fill,
 ### 5. About me
 This seems like a necessity for a personal website. I do want people to know at least a bit about who I am. 
 ___
-In the end, at the time of writing, I've settled on these 4 sections:
+At the time of writing, I've settled on these 4 sections:
 ![Website Sections](/website_sections.png)
 
 One day I'll add a Projects section.
 
 # Actually making the website
+
+![Building the wbesite](/building.png)
+
 Once I had decided on what sections of the website I wanted, building my website off of the foundation of the template was very straightforward. I'd recommend adding a linter like [ESLint](https://eslint.org/) and code formatter like [Prettier](https://prettier.io/) to improve your developer experience.
 
 Honestly, the hardest part of making the website has been re-learning some forgotten CSS to mould the template website into the form I wanted. I work on backends more than UIs professionally, so I was a bit out of practice. You do need to understand React, of course, but the React involved in building a static website is relatively simple since you shouldn't need to manage state since there shouldn't be much user interaction involved.
