@@ -1,0 +1,29 @@
+---
+title: "Flash Boys"
+bookAuthor: "Michael Lewis"
+publishedAt: "2024-05-22"
+dateFinished: "2024-05-22"
+favorite: true
+---
+
+**Disclaimer**: I am a complete finance noob. This is just what I took away from the book. 
+
+From the author of familiar books/movies like The Big Short, Moneyball, and The Blind Side, this is an excellent exposé of Wall Street corruption as it pertains to high-frequency traders.
+
+### HFTs in the SWE Lore
+As a software engineer and Chicago resident, I've heard about high-frequency trading in the past. Usually it comes up due to how well HFT firms pay engineers: If you go on [levels.fyi](https://www.levels.fyi/leaderboard/Software-Engineer/Entry-Level-Engineer/country/United-States/), the top 3 top paying companies for entry-level engineers are all companies which do HFT: Hudson River Trading, Jane Street, and Optiver. 
+
+I never understood precisely how doing things *fast* (a key part of being *high-frequency*) actually helped companies make more money, however. I mean, I could probably make some guesses, but I didn't know the details or how these companies could make so much money. After all, I thought that to make money in the stock market you had to make a correct prediction as to whether a stock price would go up or down. Or maybe provide some sort of service. Don't you? 
+
+### Guaranteed Returns
+Turns out, you don't! If you're smart enough, you can find other ways to make money. And that's what high frequency traders do. One example of how high-frequency traders can make money on the stock market without needing to make accurate predictions about stock performance is called **front-running**. A key fact to understand is that there are multiple US stock exchanges: NYSE, NASDAQ, and others. When a large trade is executed (e.g. a big fund buying 10,000 shares of a stock at the price of $1/share), that trade will often be split up between multiple exchanges. 
+
+HFTs will constantly put in small orders at exchanges to get a sense if any trader is planning on executing such a large trade. So when it detects a big fund buying 10,000 shares of a stock at the price of $1/share, it will rush ahead to the *other* exchanges, buy up a bunch of the stock at $1/share, making the price of the stock move up some small amount (e.g. to $1.01), and then turn around and sell it back the big fund at the higher price once the big fund's order finally gets to the other exchanges. This is reminiscent of ticket scalpers or shoe resellers - they aren't really providing any sort of service (at least, not as far as I can tell), but they artificially inflate prices. 
+
+This is just *one* of the many ways HFTs can make money without needing to actually predict stock market movements. And the people being hurt by this behavior - the one's forced to buy a stock at $1.01 instead of $1 - is you, the unaware stock market investor. 
+
+To make things worse, many big banks (i.e. the Goldman Sachs, J.P. Morgans, etc.) enable this type of predatory by HFTs by selling the right to execute your orders to HFTs. Why are HFTs willing to spend money for the right to execute people's stock market orders? The only explanation is that they are somehow making money off of it, probably at your expense. 
+
+### Why to Read This
+Overall, this book is an excellent exposé of Wall Street corruption. It is both a great story and interesting explanation of the arbitrage HFTs do by using low-latency infrastructure and techniques that let them execute trades faster than everyone else. No wonder HFTs make so much money. What I've written above is just a small bit of the story, and I'd highly recommend this book to anyone interested in finance, software engineering, or good stories in general.
+
