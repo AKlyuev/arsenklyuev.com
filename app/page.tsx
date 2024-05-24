@@ -3,15 +3,11 @@ import { BlogPosts } from "app/components/posts";
 export default function Page() {
   return (
     <section>
-      <p className="mb-4">
-        {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-        Vim's keystroke commands and tabs' flexibility for personal viewing
-        preferences. This extends to my support for static typing, where its
-        early error detection ensures cleaner code, and my preference for dark
-        mode, which eases long coding sessions by reducing eye strain.`}
+      <p className={`leading-7 mb-4`}>
+        {`Hey! Welcome to my website.`}
       </p>
       <div className="my-8">
-        <BlogPosts />
+        <h1> This will be replaced with an interactive element</h1>
       </div>
     </section>
   );

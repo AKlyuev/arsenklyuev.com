@@ -1,7 +1,6 @@
-// pages/bookshelf.js
-
 import React from "react";
 import Link from "next/link";
+import { josefin_sans } from "app/fonts";
 import { getBookPosts } from "app/blog/utils";
 
 const Bookshelf = () => {
@@ -19,7 +18,7 @@ const Bookshelf = () => {
 
   return (
     <div className="container mx-auto dark:text-white">
-      <p className="mb-4">
+      <p className={`leading-7 mb-4`}>
         This is a list of some of the books I've read or am reading. Books I've
         particularly enjoyed have a thicker border around them. A lot of books
         have these thicker borders, because I generally try to only read
@@ -36,7 +35,7 @@ const Bookshelf = () => {
             >
               <Link href={book.metadata.goodReadsLink!}>
                 <h2
-                  className={`text-lg font-semibold mb-2 dark:text-neutral-300 hover:underline`}
+                  className={`${josefin_sans.className} leading-7 uppercase font-semibold mb-2 dark:text-neutral-300 hover:underline`}
                 >
                   {book.metadata.title}
                 </h2>
@@ -63,7 +62,7 @@ const Bookshelf = () => {
                 </span>
               )}
             </div>
-          )
+          );
         })}
       </div>
     </div>
