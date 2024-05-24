@@ -7,6 +7,7 @@ type Metadata = {
   hidden?: string;
   image?: string;
   bookAuthor?: string;
+  goodReadsLink?: string;
   dateFinished?: string;
   favorite?: string;
 };
