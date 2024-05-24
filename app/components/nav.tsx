@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
 import Link from "next/link";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
 import { josefin_sans } from "app/fonts";
 
 const navItems = {
@@ -20,8 +20,7 @@ const navItems = {
 };
 
 export function Navbar() {
-
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <aside className="mb-8 uppercase">
@@ -36,7 +35,7 @@ export function Navbar() {
                 <Link
                   key={path}
                   href={path}
-                  className={`${josefin_sans.className} ftransition-all hover:text-neutral-500 flex align-middle relative py-1 px-2 m-1 ${pathname === path ? 'text-neutral-500' : ''}`}
+                  className={`${josefin_sans.className} ftransition-all hover:text-neutral-500 flex align-middle relative py-1 px-2 m-1 ${pathname === path ? "text-neutral-500" : ""}`}
                 >
                   {name}
                 </Link>

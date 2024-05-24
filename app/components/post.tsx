@@ -5,7 +5,9 @@ import { josefin_sans } from "app/fonts";
 export default function Post({ post }) {
   return (
     <div className="max-w-2xl">
-      <h1 className={`${josefin_sans.className} uppercase title font-semibold text-2xl tracking-tighter`}>
+      <h1
+        className={`${josefin_sans.className} uppercase title font-semibold text-2xl tracking-tighter`}
+      >
         {post.metadata.title}
       </h1>
       <div className={`leading-7`}>

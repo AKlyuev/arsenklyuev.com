@@ -26,7 +26,9 @@ export default function Page() {
             alt="My Profile Picture"
           />
         </div>
-        <div className={`${montserrat.className} leading-7 flex flex-col mt-4 md:mt-0 md:pl-4 p-2 space-y-4`}>
+        <div
+          className={`${montserrat.className} leading-7 flex flex-col mt-4 md:mt-0 md:pl-4 p-2 space-y-4`}
+        >
           <p>Hi! I'm Arsen. I live in Chicago and work on software.</p>
           <p>
             I previously worked at Qualtrics for 4 years, in Seattle and
