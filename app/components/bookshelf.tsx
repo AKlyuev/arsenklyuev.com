@@ -48,7 +48,7 @@ const Bookshelf = () => {
                   href={`/bookshelf/${book.slug}`}
                   className="text-blue-500 hover:underline hover:text-blue-700 transition-colors duration-300"
                 >
-                  Read Notes
+                  My Notes
                 </Link>
               )}
               {book.metadata.dateFinished && (
