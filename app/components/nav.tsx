@@ -13,10 +13,7 @@ const navItems = {
   },
   "/bookshelf": {
     name: "bookshelf",
-  },
-  "/about": {
-    name: "about",
-  },
+  }
 };
 
 export function Navbar() {

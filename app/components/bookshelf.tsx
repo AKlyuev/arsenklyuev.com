@@ -17,12 +17,10 @@ const Bookshelf = () => {
   });
 
   return (
-    <div className="container mx-auto dark:text-white">
+    <div className="container max-w-3xl mx-auto dark:text-white">
       <p className={`leading-7 mb-4`}>
         This is a list of some of the books I've read or am reading. Books I've
-        particularly enjoyed have a thicker border around them. A lot of books
-        have these thicker borders, because I generally try to only read
-        acclaimed books. Some entries have a link to my notes on the book.
+        particularly enjoyed have a thicker border around them. Most entries have a link to my notes on the book.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {sortedBooks.map((book) => {
