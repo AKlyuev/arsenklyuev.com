@@ -4,9 +4,12 @@ import path from "path";
 type Metadata = {
   title: string;
   publishedAt: string;
-  summary: string;
-  hidden: string;
+  hidden?: string;
   image?: string;
+  bookAuthor?: string;
+  goodReadsLink?: string;
+  dateFinished?: string;
+  favorite?: string;
 };
 
 function parseFrontmatter(fileContent: string) {
@@ -52,6 +55,10 @@ function getMDXData(dir) {
 
 export function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), "app", "blog", "posts"));
+}
+
+export function getBookPosts() {
+  return getMDXData(path.join(process.cwd(), "app", "bookshelf", "posts"));
 }
 
 export function formatDate(date: string, includeRelative = false) {

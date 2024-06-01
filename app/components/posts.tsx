@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { formatDate, getBlogPosts } from "app/blog/utils";
+import { josefin_sans } from "app/fonts";
 
 export function BlogPosts() {
   let allBlogs = getBlogPosts();
@@ -27,7 +28,9 @@ export function BlogPosts() {
                   <p className="text-neutral-600 dark:text-neutral-400 w-28 md:w-32 tabular-nums">
                     {formatDate(post.metadata.publishedAt, false)}
                   </p>
-                  <p className="text-neutral-900 dark:text-neutral-100 tracking-tight text-lg font-semibold group-hover:underline">
+                  <p
+                    className={`${josefin_sans.className} uppercase text-neutral-900 dark:text-neutral-100 tracking-tight text-md font-semibold group-hover:underline`}
+                  >
                     {post.metadata.title}
                   </p>
                 </div>
