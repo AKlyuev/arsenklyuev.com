@@ -52,7 +52,8 @@ export function generateMetadata({ params }) {
 }
 
 export default function BookPost({ params }) {
-  let post = getBookPosts().find((post) => post.slug === params.slug);
+  // we only want to make a page for book posts that have content
+  let post = getBookPosts().find((post) => post.slug === params.slug && post.content);
 
   if (!post) {
     notFound();

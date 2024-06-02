@@ -1,48 +1,93 @@
+import { metadata } from "app/layout";
 import fs from "fs";
 import path from "path";
 
-type Metadata = {
+type BlogPostMetadata = {
   title: string;
   publishedAt: string;
+  summary?: string;
   hidden?: string;
   image?: string;
-  bookAuthor?: string;
-  goodReadsLink?: string;
-  dateFinished?: string;
-  favorite?: string;
-};
+}
 
-function parseFrontmatter(fileContent: string) {
+type BookPostMetadata = {
+  title: string;
+  bookAuthor: string;
+  goodReadsLink: string;
+  favorite?: string;
+  publishedAt?: string;
+  summary?: string;
+  hidden?: string;
+  image?: string;
+  dateFinished?: string;
+}
+
+function parseBlogPostFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   let match = frontmatterRegex.exec(fileContent);
   let frontMatterBlock = match![1];
   let content = fileContent.replace(frontmatterRegex, "").trim();
   let frontMatterLines = frontMatterBlock.trim().split("\n");
-  let metadata: Partial<Metadata> = {};
+  let metadata: Partial<BlogPostMetadata> = {};
 
   frontMatterLines.forEach((line) => {
     let [key, ...valueArr] = line.split(": ");
     let value = valueArr.join(": ").trim();
     value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value;
+    metadata[key.trim() as keyof BlogPostMetadata] = value;
   });
+  return { metadata: metadata as BlogPostMetadata, content };
+}
 
-  return { metadata: metadata as Metadata, content };
+function parseBookPostFrontmatter(fileContent: string) {
+  let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
+  let match = frontmatterRegex.exec(fileContent);
+  let frontMatterBlock = match![1];
+  let content = fileContent.replace(frontmatterRegex, "").trim();
+  let frontMatterLines = frontMatterBlock.trim().split("\n");
+  let metadata: Partial<BookPostMetadata> = {};
+
+  frontMatterLines.forEach((line) => {
+    let [key, ...valueArr] = line.split(": ");
+    let value = valueArr.join(": ").trim();
+    value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
+    metadata[key.trim() as keyof BookPostMetadata] = value;
+  });
+  return { metadata: metadata as BookPostMetadata, content };
 }
 
 function getMDXFiles(dir) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 
-function readMDXFile(filePath) {
+function readBlogPostMDXFile(filePath) {
   let rawContent = fs.readFileSync(filePath, "utf-8");
-  return parseFrontmatter(rawContent);
+  return parseBlogPostFrontmatter(rawContent);
 }
 
-function getMDXData(dir) {
+function readBookPostMDXFile(filePath) {
+  let rawContent = fs.readFileSync(filePath, "utf-8");
+  return parseBookPostFrontmatter(rawContent);
+}
+
+function getBlogPostMDXData(dir) {
   let mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
-    let { metadata, content } = readMDXFile(path.join(dir, file));
+    let { metadata, content } = readBlogPostMDXFile(path.join(dir, file));
+    let slug = path.basename(file, path.extname(file));
+
+    return {
+      metadata,
+      slug,
+      content,
+    };
+  });
+}
+
+function getBookPostMDXData(dir) {
+  let mdxFiles = getMDXFiles(dir);
+  return mdxFiles.map((file) => {
+    let { metadata, content } = readBookPostMDXFile(path.join(dir, file));
     let slug = path.basename(file, path.extname(file));
 
     return {
@@ -54,11 +99,11 @@ function getMDXData(dir) {
 }
 
 export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), "app", "blog", "posts"));
+  return getBlogPostMDXData(path.join(process.cwd(), "app", "blog", "posts"));
 }
 
 export function getBookPosts() {
-  return getMDXData(path.join(process.cwd(), "app", "bookshelf", "posts"));
+  return getBookPostMDXData(path.join(process.cwd(), "app", "bookshelf", "posts"));
 }
 
 export function formatDate(date: string, includeRelative = false) {
