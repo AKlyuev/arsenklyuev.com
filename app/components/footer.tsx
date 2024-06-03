@@ -49,7 +49,7 @@ export default function Footer() {
             href="https://github.com/AKlyuev/arsenklyuev.com"
           >
             <ArrowIcon />
-            <p className="ml-2 h-7">view source (currently private)</p>
+            <p className="ml-2 h-7">view source</p>
           </a>
         </li>
       </ul>
