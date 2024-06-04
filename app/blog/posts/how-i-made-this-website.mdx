@@ -8,7 +8,7 @@ summary: "Explaining what tools I used to make this website."
 
 Creating a personal website has been a very rewarding experience. Frankly, it's the first time I can say I coded something for _myself_.
 
-However, choosing how to build this website was a somewhat confusing process. There are tons of ways to make a website, each with their own tradeoffs. This post is a summary of my thought process in choosing what to use a make this website, and what I learned in the process. Be aware - it's is not a tutorial on how to make a website. But I hope reading this helps you make sense of the options out there in the world of personal web development!
+However, choosing how to build this website was a somewhat confusing process. There are tons of ways to make a website, each with its own tradeoffs. This post summarizes my thought process in choosing what to use to make this website, and what I learned in the process. Be aware - it’s not a tutorial on how to make a website. But I hope reading this helps you make sense of the options out there in the world of personal web development!
 
 A quick disclaimer: This post is targeted towards people who are interested in building a website themselves - i.e. with coding. For people not interested in that, I would recommend using a **Content Management System (CMS)** which includes a website-builder such as Squarespace. It'll be easier to build a website with one, at the cost of some money per month/year. Despite being a software engineer, I considered using Squarespace but ultimately chose to make this website from "scratch" because I was interested in learning the technologies involved.
 
@@ -16,25 +16,25 @@ A quick disclaimer: This post is targeted towards people who are interested in b
 
 ![Static vs. Dynamic Websites](/static_vs_dynamic.png)
 
-When looking into how to create a personal website, you'll see a lot of talk about _static_ vs. _dynamic_ websites. Specifically, people will suggest tools for building and deploying static sites, since personal websites are pretty much always static sites. But what exactly do static and dynamic mean in this context?
+When looking into how to create a personal website, you'll see a lot of talk about _static_ vs. _dynamic_ websites. Specifically, people will suggest tools for building and deploying static sites, since personal websites are almost always static sites. But what exactly do static and dynamic mean in this context?
 
-I don't think there is one "official" definition for what a static website is, but I would say it is a website which overwhelmingly serves _static_ content. Static content is content that always stays the same, completely independent of the website user. A traditional blog is a good example: no matter who is reading a blog, the blog posts and their content will be the same. Contrast this to a dynamic website like Facebook, where what you see on the website is tailored to who you are, and the difference becomes more clear. Most websites actually have a combination of static and dynamic content, but they usually lean one way or another.
+I don't think there is one "official" definition for what a static website is, but I would say it is a website that overwhelmingly serves _static_ content. Static content is content that always stays the same, completely independent of the website user. A traditional blog is a good example: no matter who is reading a blog, the blog posts and their content will be the same. Contrast this to a dynamic website like Facebook, where what you see on the website is tailored to who you are, and the difference becomes more clear. Most websites actually have a combination of static and dynamic content, but they usually lean one way or another.
 
 From a software engineering perspective, the main benefit of a static website is that it can be very fast. The server does not need to do any processing to return static content, it just takes a requested web page and returns the file associated with it. When you opened this blog post, sending a request to the server this website is hosted on, the server did not need to perform any logic to decide what content to return to you. It just grabs the content associated with this URL.
 
-Additionally, it's much easier to take advantage of [caches & CDNs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching) with static websites. Static websites serve a limited number of static files. For example, a blog has a limited number of blog posts, whereas a facebook feed has infinite permutations of the content that is shown. Caches and CDNs, which store static files and have limited space, can more easily cache all of the content belonging to a static website than a dynamic one.
+Additionally, it's much easier to take advantage of [caches & CDNs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching) with static websites. Static websites serve a limited number of static files. For example, a blog has a limited number of blog posts, whereas a Facebook feed has infinite permutations of the content that is shown. Caches and CDNs, which store static files and have limited space, can more easily cache all of the content belonging to a static website than a dynamic one.
 
 # How to make a static website
 
-Static websites are generally easier to make than dynamic websites - after all, it's essentially as basic as a website can be! And there are tools for creating static sites that improve the developer experience of making one called **Static Site Generators (SSGs)**.
+Static websites are generally easier to make than dynamic websites - after all, it's essentially as basic as a website can be! There are tools for creating static sites that improve the developer experience of making one called **Static Site Generators (SSGs)**.
 
 ## SSGs
 
 ![SSGs on the dev spectrum](/SSG_spectrum.png)
 
-When you look up "How to create a personal website," you'll notice a LOT of people mentioning tools like [Gatsby](https://www.gatsbyjs.com/), [Jekyll](https://jekyllrb.com/), etc. These are SSGs! SSGs are generally focused on a specific language/framework like Go or [React](https://react.dev/). I would recommend figuring out what language or framework you want to use and then using an SSG designed for it.
+When you look up "How to create a personal website," you'll notice a LOT of people mentioning tools like [Gatsby](https://www.gatsbyjs.com/), [Jekyll](https://jekyllrb.com/), etc. These are SSGs! SSGs generally focus on a specific language/framework like Go or [React](https://react.dev/). I recommend figuring out what language or framework you want to use and then using an SSG designed for it.
 
-In my case, way before I learned about dynamic and static websites and whatnot, I wanted to learn [Next.js](https://nextjs.org/). Next.js is a framework for building websites with React. I had seen Next.js coming up a lot in the things I was reading, and I hadn't used it before. I was happy to find out that Next.js supports static site generation, and that locked in my decision to use it for my website!
+In my case, way before I learned about dynamic and static websites and whatnot, I wanted to learn [Next.js](https://nextjs.org/). Next.js is a framework for building websites with React. I had seen Next.js coming up a lot in the things I was reading, and I hadn't used it before. I was happy to find that Next.js supports static site generation, which locked in my decision to use it for my website!
 
 #### Why I made my website with Next.js
 
@@ -43,13 +43,13 @@ In my case, way before I learned about dynamic and static websites and whatnot, 
 
 # Next.js
 
-As I always do when I start learning a new technology, I immediately found the main Next.js tutorial on the Next.js website and did most of it. I take notes when I do tutorials, because I've realized I don't retain that much information by just going through tutorials, but I find the notes I take to be helpful reference material afterwards. One of the main things I needed to understand was the various types of rendering Next.js supports.
+As I always do when I start learning a new technology, I immediately found the main Next.js tutorial on the Next.js website and did most of it. I take notes when I do tutorials because I've realized I don't retain that much information by just going through them, but I find the notes I take to be helpful reference material afterward. One of the main things I needed to understand was the various types of rendering Next.js supports.
 
 ## Rendering
 
 ![Rendering](/web_rendering.png)
 
-**Rendering** is the process of converting your code into a UI (i.e. what will be visible on your website). Next.js does what it calls **Static Rendering** by default. Rendering needs to happen at some point in the process of showing a website visitor the website UI, but the website creator can choose whether it happens on the server or the website visitor's browser (the client). Think about it like this: If you want to get a loaf of bread, you can either buy a ready-made loaf from a bakery (this is equivalent to **server-side rendering**) or buy the ingredients and make it yourself (this is equivalent to **client-side rendering**). Static Rendering is a process where rendering happens on the server at **build time**, aka. when you deploy. Or during cache revalidation. Static Rendering and server-side rendering are not exactly the same thing, but as far as I can tell, Static Rendering is a type of server-side rendering.
+**Rendering** is the process of converting your code into a UI (i.e. what will be visible on your website). Next.js does what it calls **Static Rendering** by default. Rendering needs to happen at some point in the process of showing a website visitor the website UI, but the website creator can choose whether it happens on the server or the website visitor's browser (the client). Think about it like this: If you want to get a loaf of bread, you can either buy a ready-made loaf from a bakery (this is equivalent to **server-side rendering**) or buy the ingredients and make it yourself (this is equivalent to **client-side rendering**). Static Rendering is a process where rendering happens on the server at **build time**, aka when you deploy. Or during cache revalidation. Static Rendering and server-side rendering are not the same thing, but as far as I can tell, Static Rendering is a type of server-side rendering.
 
 Static Rendering is ideal for a static website - when we deploy our website, the server we deploy to will render all of our content and store those files, which can then be distributed and cached in CDNs, etc.
 
@@ -59,35 +59,37 @@ Essentially, static rendering is the logical way of rendering static content.
 
 ![Content Storage](/storage.png)
 
-One of the choices when making a website yourself is to choose _where_ your content (e.g. blog posts) will actually live. I initially assumed it was a no-brainer - you put your content in the source code! However, reading this post by a friend of mine made me realize what should be obvious: the content can theoretically live anywhere, as long as there is an API to fetch that content. Thanks to Next.JS' static rendering, when you deploy your website it will fetch the content from the API and then build the static files for your website.
+One of the choices when making a website yourself is to choose _where_ your content (e.g. blog posts) will live. I initially assumed it was a no-brainer - you put your content in the source code! However, reading [this post](https://www.austin.website/writing/3) by a friend of mine made me realize what should be obvious: the content can theoretically live anywhere, as long as there is an API to fetch that content. Thanks to Next.js' static rendering, when you deploy your website it will fetch the content from the API and then build the static files for your website.
 
-The main benefit of this approach is that it makes it way easier to produce or modify your content. If I put this blog post in source code, any changes will require me to modify the code, push to github, and redeploy the website. If I put this post in some other location where it is fetched via an API, I could modify it by just changing it wherever it is fetched from. The source code of the website would remain the same - all the website is doing is calling an API endpoint.
+The main benefit of this approach is that it makes it way easier to produce or modify your content. If I put this blog post in source code, any changes will require me to modify the code, push it to Github, and redeploy the website. Some hosting solutions automatically redeploy, but more on that later. 
 
-While I do think this second approach is more convenient in terms of writing, it's more up-front work. For the early days of this website I'm going to try to just have my content in the source code using MDX, a library which allows me to write markdown which contains JSX. However, if I end finding the process of modifying and adding content painful, I will move my content to an alternate location behind an API. And then modify this blog post there to reflect that, without needing to redeploy ;)
+If I put this post in some other location where it is fetched via an API, I could modify it by just changing it wherever it is fetched from. The source code of the website would remain the same - all the website is doing is calling an API endpoint. If that location is a place that makes it easy to write - say, something like Google Docs or Notion - that could mean an improved dev experience.
+
+While this second approach is more convenient in terms of writing, it's more up-front work. For the early days of this website, I'm going to keep my content in the source code using MDX, a library that allows me to write Markdown that contains JSX. However, if I find the process of modifying and adding content painful, I will move my content to an alternate location behind an API. Then I’ll modify this blog post there to reflect that, without needing to redeploy ;)
 
 # Other Tech Choices
 
 ## Tailwind
 
-Tailwind is a CSS library. I had heard of it before I started working on this website. When I did the Next.js tutorial, it mentioned that Tailwind was one of the most popular CSS libraries people use when building with Next.js. So I decided I wanted to use it for this website.
+Tailwind is a CSS library. I had heard of it before I started working on this website. When I did the Next.js tutorial, it mentioned that Tailwind was one of the most popular CSS libraries people use when building with Next.js. So I decided to use it for this website.
 
 ## Typescript
 
-Typescript is getting increasingly popular for development, and I've used it at my job. Next.js uses Typescript by default. I do like types, so using Typescript was an obvious choice.
+Typescript is becoming increasingly popular for development, and I've used it at my previous job. Next.js uses Typescript by default. I do like types, so using Typescript was an obvious choice.
 
-# Starting to build
+# Starting to Build
 
-Once I had decided on my "stack," I found an article on "how to make a personal website with next.js" and started following it. I have a habit of wanting to follow tutorials instead of just figuring things out myself. However, I found the organization of the example blog was different from what I wanted for my website, and as I was looking around for other example blogs, I found what I would actually end up using: the [next.js portfolio starter kit template](https://vercel.com/templates/next.js/portfolio-starter-kit)!
+Once I had decided on my "stack," I found an article on "how to make a personal website with next.js" and started following it. I have a habit of following tutorials instead of just figuring things out myself. However, I found the organization of the example blog was different from what I wanted for my website, and as I was looking around for other example blogs, I found what I would end up using: the [next.js portfolio starter kit template](https://vercel.com/templates/next.js/portfolio-starter-kit)!
 
-This was my first time using a website template, and it turned out to be perfect for what I wanted. Appearance wise it was relatively minimal, but was very similar in terms of organization to what I wanted. It used Tailwind and MDX, which was what I wanted to use.
+This was my first time using a website template, and it was perfect for what I needed. Appearance-wise it was relatively minimal, but was very similar in terms of organization to what I wanted. It used Tailwind and MDX, which was what I wanted to use.
 
 I made a Github repo for the website and started building.
 
-# Getting inspiration from other websites
+# Getting Inspiration From Other Websites
 
 ![Copying other websites](/copying_websites.png)
 
-Around the time I decided I wanted to make a website, I started bookmarking personal website's I liked. I really liked the clean, beautiful aesthetic of [this website](https://www.claybavor.com/). I also really liked the "Bookshelf" and "Thoughts" section on [this website](https://www.austinnick.blog/). While I'd argue completely copying someone else's website makes you lose out on part of the enjoyment of creating your website, I don't think there's anything wrong with looking at other websites for ideas you like!
+Around the time I decided I wanted to make a website, I started bookmarking personal websites I liked. I loved the clean, beautiful aesthetic of [this website](https://www.claybavor.com/). I also really liked the "Bookshelf" and "Thoughts" sections on [this website](https://www.austinnick.blog/). While I'll argue completely copying someone else's website makes you lose out on part of the enjoyment of creating your website, there’s nothing wrong with looking at other websites for ideas you like!
 
 Looking at other websites, I determined what I wanted to have on my website. Initially, I wanted my website to have 5 sections:
 
@@ -99,53 +101,104 @@ Looking at other websites, I determined what I wanted to have on my website. Ini
 
 ### 1. Home Page
 
-I wanted this to have an eye-catching, interactive element that tells a little bit about me. But creating such an element, particularly one I would be proud of, could be considered a separate project on it's own. I would ideally like this element to be some sort of interactive 3D model, perhaps made with [Blender](https://www.blender.org/) or [three.js](https://threejs.org/). Or some sort of mini-game. Since I wanted to finish this website before starting any new projects, I decided to put off adding such an element until after my website was deployed. Instead, I put what I was planning on putting in my "About Me" page on the home page.
+I wanted this to have an eye-catching, interactive element that tells a bit about me. I would ideally like this element to be some sort of interactive 3D model, perhaps made with [Blender](https://www.blender.org/) or [three.js](https://threejs.org/). Or some kind of mini-game.  But creating such an element - particularly one I would be proud of - could be considered a separate project on its own. I decided to put off adding such an element until after my website was deployed. Instead, I put what I was planning on putting in my "About Me" page on the home page.
 
 ### 2. Blog
 
-I had never blogged or done any sort of "public" writing before, but I do enjoy the process of putting thoughts down on a page, so I figured this would be fitting.
+I enjoy writing and teaching others, so I figured this would be fitting.
 
 ### 3. Projects
 
-A lot of personal websites I've seen have a projects section. However, I quickly realized I just _wished_ I had projects I could share, but the reality is, I don't! Pretty much all the projects I've done have been at my job, which I can't share. I think it would be cool to have personal projects outside of work, but I don't have any good, complete ones. **So I nixed this section**.
+A lot of personal websites I've seen have a projects section. However, I quickly realized I just _wished_ I had projects I could share, but the reality is, I don't! Most of the projects I've done have been at my job, which I can't share. I’d love to have personal projects outside of work, but I have no good, complete ones. **So I nixed this section**.
 
 ### 4. Bookshelf
 
-If there was going to be one section on my website I knew would be easy to fill, it would be this one. I read a lot, I like recommending books, and I like talking about books. Hell yeah.
+If there's one section on my website I knew would be easy to fill, it's this one. I read a lot, I like recommending books, and I like talking about books. Hell yeah.
 
 ### 5. About me
 
-This seems like a necessity for a personal website. I do want people to know at least a bit about who I am. I put the content I was planning on putting on this page on the home page, and **got rid of this section**. 
+This seems like a necessity for a personal website. I do want people to know who I am. I put the content I was planning on putting on this page on the home page, and **got rid of this section**. 
 
 ---
 
-At the time of writing, I've settled on these 4 sections:
-![Website Sections](/website_sections.png)
+So I eventually chose to just start with 3 sections:
+1. Home Page
+2. Blog
+3. Bookshelf
 
-One day I'll add a Projects section.
+It’s not much, but it’s something!
 
-# Actually making the website
+# Actually Making The Website
 
 ![Building the wbesite](/building.png)
 
-Once I had decided on what sections of the website I wanted, building my website off of the foundation of the template was very straightforward. I'd recommend adding a linter like [ESLint](https://eslint.org/) and code formatter like [Prettier](https://prettier.io/) to improve your developer experience.
+Once I had decided on what sections of the website I wanted, building my website off of the foundation of the template was very straightforward. I'd recommend adding a linter like [ESLint](https://eslint.org/) and a code formatter like [Prettier](https://prettier.io/) to improve your developer experience.
 
-Honestly, the hardest part of making the website has been re-learning some forgotten CSS to mould the template website into the form I wanted. I work on backends more than UIs professionally, so I was a bit out of practice. You do need to understand React, of course, but the React involved in building a static website is relatively simple since you shouldn't need to manage state since there shouldn't be much user interaction involved.
+Honestly, the hardest part of making the website has been re-learning some forgotten CSS to mold the template website into the form I wanted. I work on backends more than UIs professionally, so I was a bit out of practice. You do need to understand React, of course, but the React involved in building a static website is relatively simple since you shouldn't need to manage state since there shouldn't be much user interaction involved.
 
 ## AI Tools
 
-I'm putting "AI tools" here generically, but I'll be specific: [Chatgpt](chatgpt.com) helped me out here. I full on asked Chatgpt to create a "bookshelf" page for me because I wanted some inspiration, but I liked what it came up with so I left it. I'm sure using other tools like AI coding assistants would also make the process easier.
+I'm putting "AI tools" here generically, but I'll be specific: [Chatgpt](chatgpt.com) helped me out here. I full-on asked Chatgpt to create a "bookshelf" page for me because I wanted some inspiration, but I liked what it came up with so I left it. I'm sure using other tools like AI coding assistants would also make the process easier.
 
 Part of me feels like using AI is like "cheating," but overall I would say: if a tool exists for something, feel free to use it. Just remember to try to learn something while you're at it.
 
 # Deploying
 
-TODO: To be filled in when you deploy
+## Getting hosted
+
+![Server Hosting](/hosting.png)
+
+The next step after writing the code for your website is to determine where it will be hosted - after all, your website code needs to be _running_ somewhere for it to function! [Vercel](https://vercel.com/), the company that created and maintains Next.js, provides a managed infrastructure for Next.js applications which makes it easy to host Next.js projects. Alternatively, Next.js also provides tools so that you can "self-host" Next.js projects on other hosting providers as long as they either support Node.js, Docker containers, or HTML/CSS/JS static assets. 
+
+I ultimately chose to use the Vercel-managed infrastructure due to its ease of use. As soon as I push to the main branch of my website's Github repo, the website automatically redeploys. I'd expect self-hosting to be cheaper for a website with lots of traffic, but I'm not expecting much traffic to my website at this point so I can use the Vercel free tier.
+
+Once I deployed on the managed Vercel infra, my website automatically became available at [arsenklyuev.vercel.app](https://arsenklyuev.vercel.app/). If I was happy with this domain, I'd be done at this point - but I wanted a `.com` domain!
+
+## Buying the domain
+I decided early on that I wanted my website to have the domain `arsenklyuev.com`. I was happy to find that that domain was available for sale. Those of you with more common names may have less luck.
+
+You can buy domains from websites called **domain registrars**. Lots of companies are domain registrars, such as [NameCheap](https://www.namecheap.com/), [Squarespace](https://domains.squarespace.com/), etc. Domain prices and renewal rates (you must pay for the domain each year) vary between registrars, so it's worth looking around at a few. When choosing a registrar, in addition to price, you may also consider factors like the features the registrar provides, the reputation of the registrar, customer support quality, etc. 
+
+As I usually do in situations where I need to choose between products, I looked up "Reddit best domain registrar" and found a Reddit thread from late 2023 where a lot of people were suggesting using the [Cloudflare Registrar](https://www.cloudflare.com/products/registrar/) or [Porkbun](https://porkbun.com/). I used Cloudflare a bit at my previous job, so I looked up their registrar and found that they had the lowest price I had seen for `arsenklyuev.com`: only $10 a year! In contrast, the same domain on Vercel, which _also_ sells functions as a domain registrar, was $20 a year. 
+
+Without too much additional thought, I bought the domain from Cloudflare. 
+
+## DNS! DNS!
+
+At this point, I had two things: A website hosted on Vercel, and a domain. The question is: How do I make it so that when people type in the URL `arsenklyuev.com` in their browser's address bar, they hit the Vercel server where my website is hosted?
+
+### The Domain Name System (DNS)
+
+![DNS Resolution Diagram](/DNS_resolution.png)
+
+For those who don't know how DNS works, here's a brief explanation:
+
+Internet resources are hosted in locations represented by a number - an *IP address*, such as `76.76.21.21`. When you type in `arsenklyuev.com` in your browser's address bar, it needs to hit the server where your website is hosted, which can be reached at the IP address `76.76.21.21`. 
+
+DNS is the missing link that makes that possible. It functions as a sort of “phonebook of the internet”, translating domain names to IP addresses and automatically routing website visitors to the right IP address for the website. However, domain: IP address mappings aren't automatically added to DNS - after all, _someone_ needs to add the phone numbers to a phone book. The domain owner needs to add that information to DNS themselves. These domain: IP address mappings are examples of **DNS Records**. 
+
+I am skipping some significant details on how this routing works that I consider out of the scope of this post, but if you're interested, I would recommend reading [this Cloudflare article](https://www.cloudflare.com/learning/dns/what-is-dns/).
+
+### Adding DNS Records
+
+The most important type of DNS record is an **A record**, or "Authoritative Record." The A record holds the domain: IP address mapping mentioned above. Most domain registrars also provide a DNS hosting service that allows you to add DNS records. Once you figure out what IP address your website is hosted on, you can create an A record on your domain registrar website/DNS hosting service pointing your domain to your website's IP address.
+
+Another commonly used DNS record type is a **CNAME**. This is a type of DNS record that forwards one domain (or subdomain) to another domain. For example, `www.arsenklyuev.com` is a _subdomain_ of `arsenklyuev.com`. People generally expect websites to have a `www` in front of their domain name, but if you don't set up any DNS records for the `www` subdomain, people trying to go to that subdomain won't be able to access it. Instead, they'll be met with a DNS resolution error in their browser!
+
+To avoid this, the best practice is to set up a CNAME record forwarding the www subdomain to the domain for which you've set up the A record. So the `www.arsenklyuev.com` subdomain could be forwarded to the `arsenklyuev.com` domain, which will be routed to my `76.76.21.21` IP address.
+
+In my case, Vercel recommended setting up the CNAME for `www.arsenklyuev.com` to forward to `cname.vercel-dns.com`, so I did that instead. Since my website is hosted on Vercel, and Vercel knows where exactly in its backend servers my website is hosted, we can trust that the request will be routed correctly. 
+
+So I ultimately ended up with this DNS record setup:
+
+![DNS Record Setup](/DNS_config.png)
 
 ---
 
-So there is my semi-technical explanation of how I made this website. Surprisingly, the process of figuring out _what_ to use to make the website involved significantly more thought than actually making the website. For anyone debating creating a website, I would suggest: Just go for it! It's cool to make something for yourself.
+That’s it! Surprisingly, figuring out _what_ to use to make the website involved significantly more thought than actually making the website. For anyone debating creating a website, just go for it! You’ll learn a lot, and you’ll never regret making something for yourself. 
 
 Thanks for reading,
 
 Arsen
+
+
