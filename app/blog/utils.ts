@@ -14,12 +14,19 @@ type BookPostMetadata = {
   title: string;
   bookAuthor: string;
   goodReadsLink: string;
+  status: BookStatus;
   favorite?: string;
   publishedAt?: string;
   summary?: string;
   hidden?: string;
   image?: string;
   dateFinished?: string;
+}
+
+enum BookStatus {
+  Reading = "Reading",
+  Finished = "Finished",
+  DidNotFinish = "Did Not Finish"
 }
 
 function parseBlogPostFrontmatter(fileContent: string) {
