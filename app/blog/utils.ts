@@ -8,26 +8,20 @@ type BlogPostMetadata = {
   summary?: string;
   hidden?: string;
   image?: string;
-}
+};
 
 type BookPostMetadata = {
   title: string;
   bookAuthor: string;
   goodReadsLink: string;
-  status: BookStatus;
+  status: string; // Should be one of "Finished", "Reading", or "Did Not Finish." Enums/unions don't play well with frontmatter function below.
   favorite?: string;
   publishedAt?: string;
-  summary?: string;
   hidden?: string;
-  image?: string;
   dateFinished?: string;
-}
-
-enum BookStatus {
-  Reading = "Reading",
-  Finished = "Finished",
-  DidNotFinish = "Did Not Finish"
-}
+  summary?: string;
+  image?: string;
+};
 
 function parseBlogPostFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
@@ -110,7 +104,9 @@ export function getBlogPosts() {
 }
 
 export function getBookPosts() {
-  return getBookPostMDXData(path.join(process.cwd(), "app", "bookshelf", "posts"));
+  return getBookPostMDXData(
+    path.join(process.cwd(), "app", "bookshelf", "posts"),
+  );
 }
 
 export function formatDate(date: string, includeRelative = false) {

@@ -20,7 +20,8 @@ const Bookshelf = () => {
     <div className="container max-w-3xl mx-auto dark:text-white">
       <p className={`leading-7 mb-4`}>
         This is a list of some of the books I've read or am reading. Books I've
-        particularly enjoyed have a thicker border around them. Most entries have a link to my notes on the book.
+        particularly enjoyed have a thicker border around them. Most entries
+        have a link to my notes on the book.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {sortedBooks.map((book) => {
@@ -49,15 +50,19 @@ const Bookshelf = () => {
                   My Notes
                 </Link>
               )}
-              {book.metadata.dateFinished && (
-                <p className="text-sm text-gray-600">
-                  Finished: {book.metadata.dateFinished}
-                </p>
-              )}
-              {!book.metadata.dateFinished && (
+              {book.metadata.status === "Finished" &&
+                book.metadata.dateFinished && (
+                  <p className="text-sm text-gray-600">
+                    Finished: {book.metadata.dateFinished}
+                  </p>
+                )}
+              {book.metadata.status === "Reading" && (
                 <span className="inline-block bg-yellow-500 text-white px-2 py-1 rounded-full text-xs mt-2">
                   Currently Reading
                 </span>
+              )}
+              {book.metadata.status === "Did Not Finish" && (
+                <p className="text-sm text-gray-600">Did Not Finish</p>
               )}
             </div>
           );
