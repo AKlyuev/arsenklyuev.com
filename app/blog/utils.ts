@@ -19,6 +19,8 @@ type BookPostMetadata = {
   publishedAt?: string;
   hidden?: string;
   dateFinished?: string;
+  summary?: string;
+  image?: string;
 };
 
 function parseBlogPostFrontmatter(fileContent: string) {
