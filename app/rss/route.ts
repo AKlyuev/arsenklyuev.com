@@ -5,6 +5,12 @@ export async function GET() {
   let allBlogs = await getBlogPosts();
 
   const itemsXml = allBlogs
+    .filter((post) => {
+      if (post.metadata.hidden === "true") {
+        return false;
+      }
+      return true; 
+    })
     .sort((a, b) => {
       if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
         return -1;
@@ -27,9 +33,9 @@ export async function GET() {
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0">
     <channel>
-        <title>My Portfolio</title>
+        <title>Arsen Klyuev's Website</title>
         <link>${baseUrl}</link>
-        <description>This is my portfolio RSS feed</description>
+        <description>This is Arsen Klyuev's website's RSS feed</description>
         ${itemsXml}
     </channel>
   </rss>`;
