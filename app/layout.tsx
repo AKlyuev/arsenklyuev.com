@@ -1,5 +1,5 @@
 import "./global.css";
-import { figtree, montserrat, open_sans, roboto } from "./fonts";
+import { figtree } from "./fonts";
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
