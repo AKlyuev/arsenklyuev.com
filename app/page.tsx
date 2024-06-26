@@ -11,6 +11,7 @@ export default function Page() {
             height={920}
             className="block md:hidden"
             alt="My Profile Picture"
+            priority
           />
           <Image
             src="/propic.png"
@@ -18,6 +19,7 @@ export default function Page() {
             height={440}
             className="hidden md:block"
             alt="My Profile Picture"
+            priority
           />
         </div>
         <div
@@ -40,7 +42,7 @@ export default function Page() {
             <a href={"/bookshelf"} className={"cursor-pointer underline"}>
               bookshelf
             </a>
-            ), entrepreneurship/business, and fitness.{" "}
+            ), entrepreneurship/business, and health.{" "}
           </p>
           <p>
             You can find me on{" "}
